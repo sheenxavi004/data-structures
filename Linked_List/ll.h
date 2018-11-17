@@ -1,15 +1,15 @@
 #ifndef _LL_H_
 #define _LL_H_
 // Create a structure that will define a node in linked list.
-typedef struct nodeLL{
+typedef struct node{
     int data;
-    struct nodeLL* link;
-} nodeLL;
+    struct node* link;
+} node;
 // Function to create a node for Linked List from heap
-nodeLL* getNodeLL(int data);
-nodeLL* newLL(int data);
-nodeLL* insertNodeAtEndLL(nodeLL* root, int data);
-nodeLL* insertNodeAtBegLL(nodeLL* head, int data);
-nodeLL* deleteNodeAtBegLL(nodeLL* head);
-void displayLL(nodeLL* head);
+node* getNodeLL(int data);
+node* newLL(int data);
+node* insertNodeAtEndLL(node* root, int data);
+node* insertNodeAtBegLL(node* head, int data);
+node* deleteNodeAtBegLL(node* head);
+void displayLL(node* head);
 #endif

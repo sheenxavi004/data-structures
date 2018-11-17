@@ -2,17 +2,17 @@
 #include<stdio.h>
 #include<stdlib.h>
 // getNode function creates a node for the linked list
-nodeLL* getNodeLL(int data){
-    nodeLL* newNode;
-    newNode=(nodeLL*)malloc(sizeof(nodeLL));
+node* getnode(int data){
+    node* newNode;
+    newNode=(node*)malloc(sizeof(node));
     newNode->data=data;
     newNode->link=NULL;
     return newNode;
 }
 // insertNodeAtEndLL funtion inserts a node to end of linked list
-nodeLL* insertNodeAtEndLL(nodeLL* head, int data){
+node* insertNodeAtEndLL(node* head, int data){
     if(head==NULL){
-        head=getNodeLL(data);
+        head=getnode(data);
     }
     else{
         head->link=insertNodeAtEndLL(head->link,data);
@@ -20,31 +20,31 @@ nodeLL* insertNodeAtEndLL(nodeLL* head, int data){
     return head;
 }
 // insertNodeAtBegLL funtion inserts a node to begining og linked list
-nodeLL* insertNodeAtBegLL(nodeLL* head, int data){
+node* insertNodeAtBegLL(node* head, int data){
     if(head==NULL){
-        head=getNodeLL(data);
+        head=getnode(data);
     }
     else{
-        nodeLL* newNode=getNodeLL(data);
+        node* newNode=getnode(data);
         newNode->link=head;
         head=newNode;
     }
     return head;
 }
-nodeLL* newLL(int data){
-    nodeLL* newLL=NULL;
+node* newLL(int data){
+    node* newLL=NULL;
     newLL=insertNodeAtEndLL(newLL,data);
 }
-nodeLL* deleteNodeAtBegLL(nodeLL* head){
+node* deleteNodeAtBegLL(node* head){
     if(head==NULL) return head;
-    nodeLL* begNode=head;
+    node* begNode=head;
     head=head->link;
     begNode->link=NULL;
     free(begNode);
     return head;
 }
-void displayLL(nodeLL* head){
-    nodeLL* traversePtr=head;
+void displayLL(node* head){
+    node* traversePtr=head;
     while(traversePtr!=NULL){
         printf("%d ",traversePtr->data);
         traversePtr=traversePtr->link;
